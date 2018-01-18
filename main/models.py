@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Notice(models.Model):
-	url=models.CharField(max_length=100, null=False)
-	title=models.CharField(max_length=100, null=False)
-	date=models.DateField()
-	added_date=models.DateField(auto_now_add=True)
-	views=models.IntegerField()
+	url=models.CharField(max_length=100, null=False)#path
+	title=models.CharField(max_length=100, null=False)#name
+	posted_date=models.DateField()
+	added_in_db_date=models.DateField(auto_now_add=True)
+	views=models.IntegerField()#조회수
