@@ -16,12 +16,12 @@ class Crawler():
         self.opened_url=opener.open(req)
         return self.opened_url
 	
-	def toBS(f=None):
+	def toBS(self, f=None):
         if f==None:
             return BeautifulSoup(self.opened_url, 'lxml')
         return BeautifulSoup(f, 'lxml')
 
-    def toHTML(f=None):
+    def toHTML(self, f=None):
         if f==None:
             return self.opened_url.read()
         return f.read()

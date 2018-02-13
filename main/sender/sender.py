@@ -1,8 +1,8 @@
 from. import datafield
 
 class Sender:
-	def __init__(self, driver='phantomjs', driverPath='/workspace/dev/infocom_notice/phantomjs'):
-		from selenium import webdriver as wd
+	def __init__(self, driver='phantomjs', driverPath='phantomjs'):
+		from selenium import webdriver
 		if driver == 'phantomjs':
 			capabilities = webdriver.DesiredCapabilities.PHANTOMJS.copy()
 			capabilities['phantomjs.page.settings.userAgent'] =('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36')
