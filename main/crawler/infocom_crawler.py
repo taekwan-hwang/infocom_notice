@@ -28,13 +28,16 @@ class InfocomCrawler(Crawler):
 		notices = sorted(notices, key = lambda k:k['uid'], reverse=True)
 		notice = notices[0:n]
 		for item in notice:
-			n = Notice()
-			n.uid = item['uid']
-			n.url = item['url']
-			n.title = item['title']
-			n.posted_date = item['posted_date']
-			n.views = item['views']
-			n.save()
+			try:
+				n=Notice.objects.get(uid=item['uid'])
+			except Notice.DoesNotExist:
+				n = Notice()
+				n.uid = item['uid']
+				n.url = item['url']
+				n.title = item['title']
+				n.posted_date = item['posted_date']
+				n.views = item['views']
+				n.save()
 		return notice
 	def get_new_notices(self):
 		pass
