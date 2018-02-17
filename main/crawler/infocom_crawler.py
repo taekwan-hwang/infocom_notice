@@ -1,43 +1,47 @@
 from .crawler import Crawler
-import requests
-from bs4 import BeautifulSoup
 from main.models import Notice
 
 class InfocomCrawler(Crawler):
-	"""need implementation 2 method"""
 	def __init__(self):
 		url = 'http://infocom.ssu.ac.kr/rb/?c=2/38'
 		Crawler.__init__(self, url)
-	def get_notices(self, n):
-		notices=[]
+
+	def get_notices(self, n=None):
 		Crawler.openurl(self)
-		soup = Crawler.toBS(self)
-		noticeSubcon = soup.find("div", {"class": "subcon"})
-		noticeList = noticeSubcon.find_all("div", {"class": "list"})
-		for item in noticeList:
-			href = item.get('onclick')
-			ref = href.split('&')[1].split("'")
-			noticeUrl = self.url + '&' + ref[0]
-			uid = noticeUrl.split('=')[2]
-			title = item.find("span", {"class": "subject"}).text
-			info = item.find("div", {"class": "info"}).text
-			info = info.split()
-			posted_date = info[2].replace('.', '-')
-			views = info[6]
-			notices.append({'uid': uid, 'title': title, 'url': noticeUrl, 'posted_date': posted_date, 'views': views})
-		notices = sorted(notices, key = lambda k:k['uid'], reverse=True)
-		notice = notices[0:n]
-		for item in notice:
+		notice_milestone = Crawler.toBS(self).find("div", {"class": "subcon"})
+		notice_list = notice_milestone.find_all("div", {"class": "list"})
+		notice_list=sorted(notice_list, key=lambda k:k.get('onclick').split('&')[1].split("'")[0], reverse=True)
+
+		if n is not None:
+			notice_list=notice_list[0:n]
+
+		notices = []
+
+		for notice_info in notice_list:
+			# parsing uid
+			uid=notice_info.get('onclick').split('&')[1].split("'")[0].split('=')[1]
+
+			# save data if not in db
 			try:
-				n=Notice.objects.get(uid=item['uid'])
+				notice = Notice.objects.get(uid=uid)
 			except Notice.DoesNotExist:
-				n = Notice()
-				n.uid = item['uid']
-				n.url = item['url']
-				n.title = item['title']
-				n.posted_date = item['posted_date']
-				n.views = item['views']
-				n.save()
-		return notice
+				#parsing data
+				url = self.url + '&uid=' + uid
+				title = notice_info.find("span", {"class": "subject"}).text
+				info = notice_info.find("div", {"class": "info"}).text.split()
+				posted_date = info[2].replace('.', '-')
+				views = info[6]
+				#save data in db
+				notice = Notice()
+				notice.uid = uid
+				notice.url = url
+				notice.title = title
+				notice.posted_date = posted_date
+				notice.views = views
+				notice.save()
+			finally:
+				notices.append(notice)
+		return notices
+
 	def get_new_notices(self):
 		pass
