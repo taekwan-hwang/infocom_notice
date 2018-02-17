@@ -10,8 +10,9 @@ class Sender:
 		elif driver == 'chrome':
 			self.driver=wd.Chrome(executable_path=driverPath)
 		self.driver.implicitly_wait(3)
+		self._loginkakao()
 			
-	def loginkakao(self):
+	def _loginkakao(self):
 		self.driver.get("https://accounts.kakao.com/login?continue=https://center-pf.kakao.com/signup")
 		self.driver.find_element_by_id('email').send_keys(datafield.EMAIL)
 		self.driver.find_element_by_id('password').send_keys(datafield.PASSWORD)
