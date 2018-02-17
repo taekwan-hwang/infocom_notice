@@ -18,4 +18,8 @@ class CrawlerTest(TestCase):
 	def test_infocom_crawler(request):
 		from main.crawler.infocom_crawler import InfocomCrawler
 		crawler=InfocomCrawler()
-		print(crawler.get_notices(3))
+		new_notices=crawler.get_notices(15)
+		for notice in new_notices:
+			notice.isSent=True
+			notice.save()
+		print(crawler.get_new_notices())
