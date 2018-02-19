@@ -55,4 +55,4 @@ class KakaoAdjustTest(TestCase):
 		response=client.delete('/main/friend/user_key')
 		self._check_status_code(response)
 		response=client.delete('/main/chat_room', {'user_key':'test_key'})
-		
+		self._check_status_code(response)
