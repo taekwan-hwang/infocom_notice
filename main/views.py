@@ -14,14 +14,17 @@ class Message(APIView):
 	def post(self, request):
 		if request.data['type']=='text':
 			content=request.data['content']
-                        n=int(re.findall('\d+', content)[0])
-                        crawler=InfocomCrawler()
-                        notices=crawler.get_notices(n)
-                        res=""
-                        for notice in notices:
-                            res += notice.title+" "
-                        content=res
-			return Response({'message':{'text':content}})
+                        try:
+                            n=int(re.findall('\d+', content)[0]) 
+                            crawler=InfocomCrawler()
+                            notices=crawler.get_notices(n)
+                            res=""
+                            for notice in notices:
+                                res += notice.title+" "
+                            content=res
+                        except IndexError:
+                            content="보고싶은 공지사항의 개수를 적어주세요."
+                        return Response({'message':{'text':content}})
 		return Response({'message':{'text':'fail'}})
 
 @api_view(['POST', 'DELETE'])
