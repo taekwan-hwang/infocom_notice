@@ -41,11 +41,19 @@ class KakaoAdjustTest(TestCase):
 		
 	def testMsg(self):
 		client=Client()
-		response = client.post('/main/message', {'user_key':'test_key', 'type':'text', 'content':'hi'})
+		response = client.post('/main/message', {'user_key':'test_key', 'type':'text', 'content':'2개'})
 		self._check_status_code(response)
 		json=BytesIO(response.content)
 		content=JSONParser().parse(json)
-		if content['message']['text'] != 'hi':
+		
+		from main.crawler.infocom_crawler import InfocomCrawler
+		from main.models import Notice
+		
+		expected_str=''
+		for notice in InfocomCrawler().get_notices(2):
+			expected_str+=notice.title+'/'
+		expected_str=expected_str[:-1]
+		if content['message']['text'] != expected_str:
 			raise ValueError('unexpected text')
 			
 	def testPassRequest(self):

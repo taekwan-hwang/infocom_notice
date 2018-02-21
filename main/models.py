@@ -9,3 +9,10 @@ class Notice(models.Model):
 	added_in_db_date=models.DateField(auto_now_add=True)
 	views=models.IntegerField()#조회수
 	isSent=models.BooleanField(default=False)
+	
+	def to_msg(notices):
+		msg=''
+		for notice in notices:
+			msg += notice.title+'/'
+		
+		return msg[:-1]
