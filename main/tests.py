@@ -4,8 +4,8 @@ from django.test import TestCase
 
 class SenderTest(TestCase):
 	def test_kakao_sender(request):
-		from main.sender.sender import Sender
-		sender=Sender()
+		from main.sender.sender import KakaoSender
+		sender=KakaoSender()
 		sender.send_msg("python에서 보낸 메시지입니다")
 	
 class CrawlerTest(TestCase):

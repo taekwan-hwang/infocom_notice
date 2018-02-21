@@ -1,6 +1,10 @@
 from. import datafield
 
 class Sender:
+	"""This is interface"""
+	def send_msg(self, msg):
+		pass
+class KakaoSender(Sender):
 	def __init__(self, driver='phantomjs', driverPath='phantomjs'):
 		from selenium import webdriver
 		if driver == 'phantomjs':
