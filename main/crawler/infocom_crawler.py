@@ -8,7 +8,7 @@ class InfocomCrawler(Crawler):
 
     def get_notices(self, n=None):
         Crawler.openurl(self)
-        notice_milestone = Crawler.toBS(self).find("div", {"class": "subcon"})
+        notice_milestone = Crawler.to_soup(self).find("div", {"class": "subcon"})
         notice_list = notice_milestone.find_all("div", {"class": "list"})
         notice_list=sorted(notice_list, key=lambda k:k.get('onclick').split('&')[1].split("'")[0], reverse=True)
 

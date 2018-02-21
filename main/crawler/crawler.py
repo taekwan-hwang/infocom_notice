@@ -19,7 +19,7 @@ class Crawler():
             return BeautifulSoup(self.opened_url, 'html.parser')
         return BeautifulSoup(f, 'html.parser')
 
-    def toHTML(self, f=None):
+    def to_parsed_html(self, f=None):
         if f==None:
             return self.opened_url.read()
         return f.read()
