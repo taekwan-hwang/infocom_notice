@@ -41,3 +41,4 @@ class InfocomCrawler(Crawler):
     def get_new_notices(self):
         self.get_notices()
         return Notice.objects.filter(isSent=False).order_by('-uid')#uid desc
+    
