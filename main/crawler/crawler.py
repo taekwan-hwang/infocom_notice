@@ -14,7 +14,7 @@ class Crawler():
     def __init__(self, url=None):
         self.url=url
 	
-    def toBS(self, f=None):
+    def to_soup(self, f=None):
         if f==None:
             return BeautifulSoup(self.opened_url, 'html.parser')
         return BeautifulSoup(f, 'html.parser')
