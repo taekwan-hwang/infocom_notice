@@ -22,6 +22,8 @@ media
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries*.pyc
+.idea/infocom_notice.iml
+.idea/misc.xml
 
 main/sender/datafield.py
 *~
