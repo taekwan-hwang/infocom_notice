@@ -9,4 +9,6 @@ urlpatterns = [
     path('friend', views.pass_request),
     path(r'friend/<str:user>', views.pass_request),
     path('chat_room', views.pass_request),
+    path(r'chat_room/<str:user>', views.pass_request),
+    path('delete', views.pass_request),
 ]
