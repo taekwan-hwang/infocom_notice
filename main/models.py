@@ -15,13 +15,3 @@ class Notice(models.Model):
     added_in_db_date = models.DateField(auto_now_add=True)
     views = models.IntegerField()#조회수
     isSent = models.BooleanField(default=False)
-
-    @staticmethod
-    def to_msg(notices):
-        '''
-        쿼리셋을 전송할 메시지로 변경하는 메소드
-        '''
-        msg = ''
-        for notice in notices:
-            msg += notice.title+'/'
-        return msg[:-1]

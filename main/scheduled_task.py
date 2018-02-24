@@ -3,7 +3,7 @@
 """
 from main.crawler.infocom_crawler import InfocomCrawler
 from main.sender.sender import KakaoSender
-from main.models import Notice
+from main.util.msg_handler import to_msg, set_sent_status
 
 
 def send_new_msg_to_kakao():
@@ -12,6 +12,7 @@ def send_new_msg_to_kakao():
     '''
     crawler = InfocomCrawler()
     notices = crawler.get_new_notices()
-    msg = Notice.to_msg(notices)
+    msg = to_msg(notices)
     sender = KakaoSender()
     sender.send_msg(msg)
+    set_sent_status(notices)

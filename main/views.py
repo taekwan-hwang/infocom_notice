@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from main.crawler.infocom_crawler import InfocomCrawler
 from main.util.regex import find_number_in_string
 from main.models import Notice
+from main.util.msg_handler import to_msg
 
 
 class Keyboard(APIView):
@@ -31,7 +32,7 @@ class Message(APIView):
                 notice_count = find_number_in_string(content)
                 crawler = InfocomCrawler()
                 notices = crawler.get_notices(notice_count)
-                content = Notice.to_msg(notices)
+                content = to_msg(notices)
             except IndexError:
                 content = "보고싶은 공지사항의 개수를 적어주세요."
             return Response({'message':{'text':content}})
