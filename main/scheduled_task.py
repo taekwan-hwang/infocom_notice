@@ -12,6 +12,8 @@ def send_new_msg_to_kakao():
     '''
     crawler = InfocomCrawler()
     notices = crawler.get_new_notices()
+    if len(notices) == 0:
+        return
     msg = to_msg(notices)
     sender = KakaoSender()
     sender.send_msg(msg)
