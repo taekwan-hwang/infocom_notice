@@ -6,7 +6,8 @@ class Sender:
 		pass
 class KakaoSender(Sender):
 	'''카카오톡 플러스친구에 등록되어있는 사용자에게 메세지를 전송하는 객체'''
-	def __init__(self, driver='phantomjs', driverPath='phantomjs'):
+	def __init__(self, driver='phantomjs', driverPath='phantomjs', kakaoPath='https://center-pf.kakao.com/_hfvhC'):
+		self.kakaoPath=kakaoPath
 		from selenium import webdriver
 		if driver == 'phantomjs':
 			capabilities = webdriver.DesiredCapabilities.PHANTOMJS.copy()
@@ -27,7 +28,7 @@ class KakaoSender(Sender):
 		
 	def send_msg(self, msg):
 		'''메세지 전송'''
-		self.driver.get("https://center-pf.kakao.com/_hfvhC/messages/new/feed")
+		self.driver.get(self.kakaoPath + "/messages/new/feed")
 		self.driver.find_element_by_id('messageWrite').send_keys(msg)
 		self.driver.find_element_by_css_selector('#mArticle > div > form > div.message_write.message_new > div.info_message > div:nth-child(4) > div > div:nth-child(4) > label > span').click()
 		self.driver.implicitly_wait(1)
