@@ -10,6 +10,7 @@
 
 ## 2. 사용 모듈
 
+* phantomjs==2.1.3-dev-release
 * django==2.0.1
 * djangorestframework==3.7.7
 * selenium==3.8.0
@@ -17,6 +18,7 @@
 * beautifulsoup4==4.6.0
 * urllib3==1.7.1 
 * apscheduler==3.5.1
+
 ## 3. 환경 설정
 
 #### 1. 의존성 설치 
