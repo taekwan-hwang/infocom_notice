@@ -8,7 +8,7 @@
 
 카카오톡 메인 화면 상단에 위치한 "검색"을 누른 뒤 **@infocom_notice** 를 검색합니다.
 ![1](https://user-images.githubusercontent.com/36123202/36639821-ccb7bfa6-1a57-11e8-8aeb-48264accf345.PNG)
-…]()
+…](){: width="100" height="100"}
 
 	2. 친구 등록하기
 
