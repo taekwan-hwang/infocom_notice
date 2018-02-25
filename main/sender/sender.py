@@ -32,7 +32,7 @@ class KakaoSender(Sender):
 		self.driver.find_element_by_css_selector('#mArticle > div > form > div.message_write.message_new > div.info_message > div:nth-child(4) > div > div:nth-child(4) > label > span').click()
 		self.driver.implicitly_wait(1)
 		self.driver.find_element_by_id('btnName').send_keys('인포컴 바로가기')
-		self.driver.find_element_by_id('linkUpload').send_keys('http://infocom.ssu.ac.kr/rb/?c=2/38')
+		self.driver.find_element_by_id('linkUpload').send_keys('//infocom.ssu.ac.kr/rb/?c=2/38')
 		self.driver.find_element_by_css_selector('#mArticle > div > form > div.wrap_btn > span > button.btn_g.btn_g2').click()
 		self.driver.find_element_by_css_selector('#mArticle > div > form > div.wrap_btn > button.btn_g.btn_g2').click()
 		self.driver.find_element_by_css_selector('body > div:nth-child(8) > div > div:nth-child(2) > div > div > div.wrap_btn > button.btn_g.btn_g2').click()

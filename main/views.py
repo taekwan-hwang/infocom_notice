@@ -35,7 +35,14 @@ class Message(APIView):
                 content = to_msg(notices)
             except IndexError:
                 content = "보고싶은 공지사항의 개수를 적어주세요."
-            return Response({'message':{'text':content}})
+            return Response(
+                {'message':
+                     {'text': content,
+                      'message_button': {
+                          'label': '인포컴 바로가기',
+                          'url': 'infocom.ssu.ac.kr/rb/?c=2/38'
+                      }
+                      }})
         return Response({'message':{'text':'fail'}})
 
 @api_view(['POST', 'DELETE'])
