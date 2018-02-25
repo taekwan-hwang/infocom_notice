@@ -7,8 +7,8 @@ def to_msg(notices):
     쿼리셋을 전송할 메시지로 변경하는 메소드
     '''
     msg = ''
-    for notice in notices:
-        msg += notice.title + '/'
+    for i, notice in enumerate(notices):
+        msg += str(i+1) + ". " + notice.title + '\r\n'
     return msg[:-1]
 
 def set_sent_status(notices):
