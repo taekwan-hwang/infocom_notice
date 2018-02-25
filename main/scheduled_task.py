@@ -14,7 +14,7 @@ def send_new_msg_to_kakao():
     notices = crawler.get_new_notices()
     if len(notices) == 0:
         return
-    msg = to_msg(notices)
+    msg = '새 공지사항이 등록되었습니다.\r\n\r\n' + to_msg(notices)
     sender = KakaoSender()
     sender.send_msg(msg)
     set_sent_status(notices)
