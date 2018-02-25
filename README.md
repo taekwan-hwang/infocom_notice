@@ -51,7 +51,7 @@
 > 
 > 3
 
-이와 같은 메시지는 모두 동일하게 최근 공지사항 5개를 보여줍니다.
+이와 같은 메시지는 모두 동일하게 최근 공지사항 3개를 보여줍니다.
 
 
 <img src="https://user-images.githubusercontent.com/36123202/36640353-0f5fb5d6-1a60-11e8-8fdc-1f5ef0f1296d.PNG" width="40%" height="40%"></img>
