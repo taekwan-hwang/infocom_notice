@@ -7,7 +7,8 @@
  * Amazon Web Service (EC2, Ubuntu 16.04 LTS)
  * Python 3.5.2
  * Git, Github
-##2. 사용 모듈
+
+## 2. 사용 모듈
 
 * django==2.0.1
 * djangorestframework==3.7.7
@@ -18,7 +19,7 @@
 * apscheduler==3.5.1
 ## 3. 환경 설정
 
-####1. 의존성 설치 
+#### 1. 의존성 설치 
 
  * python 설치
   ~~~~
@@ -38,27 +39,27 @@
   sudo apt-get install libfontconfig
   ~~~~
   
-####2. Git Repository clone
+#### 2. Git Repository clone
 
   ~~~~
   git clone https://github.com/taekwan-hwang/infocom_notice.git
   ~~~~
   
-####3. python 패키지 설치 
+#### 3. python 패키지 설치 
 
   ~~~~
   cd infocom_notice
   pip install -r requirements.txt
   ~~~~
   
-####4. 첫 DB마이그레이션 및 설정
+#### 4. 첫 DB마이그레이션 및 설정
 
   ~~~~
   python manage.py makemigrations
   python manage.py migrate
   ~~~~
   
-####5. 카카오 계정 설정
+#### 5. 카카오 계정 설정
 * main/sender/datafield.py 파일을 생성해주어야 합니다. 
 EMAIL 과 PASSWORD 필드가 존재하여야 하며 각각은 카카오 계정 이메일과 비밀번호입니다.
 * 이 정보들은 해당 계정으로 만든 플러스친구에 등록된 이용자에게 메시지를 보내는 데 사용됩니다.
@@ -76,12 +77,12 @@ ex)main/scheduled_task.py
  ln[18]: sender = KakaoSender(kakaoPath='https://center-pf.kakao.com/_hfvhC')
  ~~~~
  
-##4. 서버 시작
+## 4. 서버 시작
  ~~~~
  python manage.py runserver {your_server_ip}:{port}
  ~~~~
  
-##5. 동작 확인 
+## 5. 동작 확인 
  * 카카오톡 플러스친구 자동응답 API에선 http://host-ip:port/keyboard에 대한 반응을 필수로 요구한다.
  * 단 이 프로젝트에서는 main/으로 시작되니 다음과 같이 입력해야한다.
    ~~~~
