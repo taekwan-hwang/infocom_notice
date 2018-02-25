@@ -63,7 +63,5 @@
 
 <img src="https://user-images.githubusercontent.com/36123202/36640354-0f88dda8-1a60-11e8-8228-7fd4d88ad568.PNG" width="40%" height="40%"></img>
 
-
-
-
-
+# 2. 개발 명세 
+개발 환경 및 설정은 [이곳](https://github.com/taekwan-hwang/infocom_notice/blob/master/DEVELOP.md)에서 확인할 수 있습니다.
