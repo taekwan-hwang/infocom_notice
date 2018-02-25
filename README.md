@@ -44,6 +44,7 @@
 
 > 보고싶은 공지사항의 개수를 적어주세요.
 
+<img src="![1](https://user-images.githubusercontent.com/36123202/36639877-e822d612-1a58-11e8-9077-41f7ad4963ea.png)" width="40%">
 
 
 
