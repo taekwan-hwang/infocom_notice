@@ -40,7 +40,7 @@ class Message(APIView):
                      {'text': content,
                       'message_button': {
                           'label': '인포컴 바로가기',
-                          'url': 'infocom.ssu.ac.kr/rb/?c=2/38'
+                          'url': 'http://infocom.ssu.ac.kr/rb/?c=2/38'
                       }
                       }})
         return Response({'message':{'text':'fail'}})
