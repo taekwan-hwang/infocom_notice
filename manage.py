@@ -27,7 +27,7 @@ if __name__ == "__main__":
         # interval 형식으로 작동하며, 마다 실행
         # 30초마다 scheduled_task.py의 updatedata함수 호출
         # hours = 2 이면 2시간 마다 실행됨
-        scheduler.add_job(send_new_msg_to_kakao, 'interval', seconds=30)
+        scheduler.add_job(send_new_msg_to_kakao, 'interval', hours=1, max_instances=1)
         scheduler.start()
     else:
         execute_from_command_line(sys.argv)
