@@ -12,3 +12,5 @@ urlpatterns = [
     path(r'chat_room/<str:user>', views.pass_request),
     path('delete', views.pass_request),
 ]
+
+import main.scheduled_task
