@@ -3,6 +3,10 @@
 # 인포컴공지봇 개요 
 본 문서는 숭실대학교 전자정보공학부 공지사항을 자동으로 알려주는 카카오톡 플러스친구에 대해 기술합니다.
 
+# 0. 이용자 수
+<img src="https://github.com/taekwan-hwang/infocom_notice/blob/master/image/user_count.JPG?raw=true"/>
+2018년 4월 10일 현재 이용자 수는 335명입니다.
+
 # 1. 사용법
 ### 1.1. 플러스친구 등록
 
